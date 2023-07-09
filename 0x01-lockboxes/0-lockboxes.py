@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Lockboxes 
+Lockboxes
 """
+
 
 def canUnlockAll(boxes):
     """
@@ -18,3 +19,4 @@ def canUnlockAll(boxes):
                 keys.append(new_key)
     if len(keys) == len(boxes):
         return True
+    return False
