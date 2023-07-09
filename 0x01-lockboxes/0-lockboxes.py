@@ -1,22 +1,35 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
-Lockboxes
+LockBoxes
 """
 
 
 def canUnlockAll(boxes):
     """
-    method that determines if all the boxes can be opened.
+    determines if all the boxes can be opened or not
+    Returns:
+        True: all boxes can be opened
+        False: not all boxes can be opened
     """
-    if not boxes:
-        return False
-    if len(boxes) == 1:
-        return True
-    keys = [0]
-    for key in keys:
-        for new_key in boxes[key]:
-            if new_key not in keys and new_key < len(boxes):
-                keys.append(new_key)
-    if len(keys) == len(boxes):
-        return True
-    return False
+    length = len(boxes)
+    keys = set()
+    opened_boxes = []
+    i = 0
+
+    while i < length:
+        oldi = i
+        opened_boxes.append(i)
+        keys.update(boxes[i])
+        for key in keys:
+            if key != 0 and key < length and key not in opened_boxes:
+                i = key
+                break
+        if oldi != i:
+            continue
+        else:
+            break
+
+    for i in range(length):
+        if i not in opened_boxes and i != 0:
+            return False
+    return True
