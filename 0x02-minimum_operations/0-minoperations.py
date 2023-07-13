@@ -58,4 +58,3 @@ def minOperations(n):
         return counter
     else:
         return 0
-    
