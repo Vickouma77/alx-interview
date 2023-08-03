@@ -11,3 +11,4 @@ The project is structured as follows:
 - '0x02-minimum_operations' - Contains a function that calculates the fewest number of operations needed to result in exactly n H characters in the file.
 - '0x03-log_parsing' - Contains a script that reads stdin line by line and computes metrics.
 - '0x04-utf8_validation' - Contains a function that determines if a given data set represents a valid UTF-8 encoding.
+- '0x05-nqueens' - Contains a function that solves the N queens puzzle.
