@@ -3,6 +3,7 @@
 This repository contains interview-related Coding Exercises and tasks.These exercises are designed to help in practising problem-solving skills and familiarize with common interview questions.
 
 ## Project Structure
+
 Each directory in this repository contains a single exercise or task. Each directory contains a README.md file that describes the exercise or task and how to solve it.
 ---
 | Folder | Description |
