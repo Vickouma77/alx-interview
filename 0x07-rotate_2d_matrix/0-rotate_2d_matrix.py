@@ -13,19 +13,19 @@ def rotate_2d_matrix(matrix: list) -> None:
     :return: None (The matrix is modified in-place)
     """
     left, right = 0, len(matrix) - 1
+
     while left < right:
         for i in range(right - left):
-            top = left
-            bottom = right
-            # Save top
-            save = matrix[top][left + i]
-            # left -> top
+            top, bottom = left, right
+            # save topleft  value
+            topLeft = matrix[top][left + i]
+            # move bottom left to top left
             matrix[top][left + i] = matrix[bottom - i][left]
-            # bottom -> left
+            # move bottom right to bottom left
             matrix[bottom - i][left] = matrix[bottom][right - i]
-            # right -> bottom
+            # move top right to bottom right
             matrix[bottom][right - i] = matrix[top + i][right]
-            # top -> right
-            matrix[top + i][right] = save
-        left += 1
+            # move top left to top right
+            matrix[top + i][right] = topLeft
         right -= 1
+        left += 1
