@@ -12,9 +12,20 @@ def rotate_2d_matrix(matrix: list) -> None:
     :type matrix: List[List[int]]
     :return: None (The matrix is modified in-place)
     """
-    n = len(matrix)
-    for i in range(n):
-        for j in range(i, n):
-            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-    for i in range(n):
-        matrix[i] = matrix[i][::-1]
+    left, right = 0, len(matrix) - 1
+    while left < right:
+        for i in range(right - left):
+            top = left
+            bottom = right
+            # Save top
+            save = matrix[top][left + i]
+            # left -> top
+            matrix[top][left + i] = matrix[bottom - i][left]
+            # bottom -> left
+            matrix[bottom - i][left] = matrix[bottom][right - i]
+            # right -> bottom
+            matrix[bottom][right - i] = matrix[top + i][right]
+            # top -> right
+            matrix[top + i][right] = save
+        left += 1
+        right -= 1
