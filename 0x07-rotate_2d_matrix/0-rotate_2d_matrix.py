@@ -13,10 +13,8 @@ def rotate_2d_matrix(matrix: list) -> None:
     :return: None (The matrix is modified in-place)
     """
     n = len(matrix)
-    for i in range(n // 2):
-        for j in range(i, n - i - 1):
-            temp = matrix[i][j]
-            matrix[i][j] = matrix[n - j - 1][i]
-            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]
-            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]
-            matrix[j][n - i - 1] = temp
+    for i in range(n):
+        for j in range(i, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+    for i in range(n):
+        matrix[i] = matrix[i][::-1]
