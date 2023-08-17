@@ -3,26 +3,14 @@
 """
 
 
-def rotate_2d_matrix(matrix):
+def rotate_2d_matrix(matrix: list) -> None:
     """
     Rotate a given n x n 2D matrix 90 degrees clockwise in-place.
-    
-    This function takes a 2D matrix as input and modifies it in-place by rotating
-    the elements 90 degrees clockwise.
-    
+    This function takes a 2D matrix as input and modifies
+    it in-place by rotating the elements 90 degrees clockwise.
     :param matrix: The n x n 2D matrix to be rotated.
     :type matrix: List[List[int]]
     :return: None (The matrix is modified in-place)
-    
-    Example:
-    >>> matrix = [[1, 2, 3],
-    ...           [4, 5, 6],
-    ...           [7, 8, 9]]
-    >>> rotate_2d_matrix(matrix)
-    >>> print(matrix)
-    [[7, 4, 1],
-     [8, 5, 2],
-     [9, 6, 3]]
     """
     n = len(matrix)
     for i in range(n // 2):
