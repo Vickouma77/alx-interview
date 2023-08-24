@@ -16,3 +16,4 @@ Each directory in this repository contains a single exercise or task. Each direc
 | [0x05-nqueens](./0x05-nqueens) | N Queens |
 | [0x06-starwars_api](./0x05-starwars_api) | Star Wars API |
 | [0x07-rotate_2d_matrix](./0x07-rotate_2d_matrix) | Rotate 2D Matrix |
+| [0x08-making_change](./0x08-making_change) | Making Change |
