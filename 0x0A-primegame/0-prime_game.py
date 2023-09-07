@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Prime Game"""
 
+
 def isWinner(x, nums):
     """
-    Pime Game function to know who is the winner of the game 
+    Pime Game function to know who is the winner of the game
     based on the number of rounds and the list of integers
-    x: number of rounds to play 
+    x: number of rounds to play
     nums: an array of n number of integers
     Return: name of the player that won the most rounds
     """
