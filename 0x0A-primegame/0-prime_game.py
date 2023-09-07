@@ -1,35 +1,32 @@
 #!/usr/bin/python3
-"""Prime Game"""
+"""
+Define isWineer function, a solution to the Prime Game problem
+"""
 
 
 def primes(n):
-    """
-    Generates prime numbers
-    args:
-        n: number
-    Returns:
-        list of prime numbers
+    """Return list of prime numbers between 1 and n inclusive
+       Args:
+        n (int): upper boundary of range. lower boundary is always 1
     """
     prime = []
-    for i in range(1, n + 1):
-        if i > 1:
-            for j in range(2, i):
-                if i % j == 0:
-                    break
-            else:
-                prime.append(i)
+    sieve = [True] * (n + 1)
+    for p in range(2, n + 1):
+        if (sieve[p]):
+            prime.append(p)
+            for i in range(p, n + 1, p):
+                sieve[i] = False
     return prime
 
 
 def isWinner(x, nums):
     """
-    Determines winner of prime game
-    args:
-        x: number of rounds
-        nums: array of n
-    Returns:
-        Name of the player that won the most rounds
-        If the winner cannot be determined, return None
+    Determines winner of Prime Game
+    Args:
+        x (int): no. of rounds of game
+        nums (int): upper limit of range for each round
+    Return:
+        Name of winner (Maria or Ben) or None if winner cannot be found
     """
     if x is None or nums is None or x == 0 or nums == []:
         return None
