@@ -1,35 +1,44 @@
 #!/usr/bin/env python3
-"""Prime Game"""
+"""
+Define isWineer function, a solution to the Prime Game problem
+"""
+
+
+def primes(n):
+    """Return list of prime numbers between 1 and n inclusive
+       Args:
+        n (int): upper boundary of range. lower boundary is always 1
+    """
+    prime = []
+    sieve = [True] * (n + 1)
+    for p in range(2, n + 1):
+        if (sieve[p]):
+            prime.append(p)
+            for i in range(p, n + 1, p):
+                sieve[i] = False
+    return prime
 
 
 def isWinner(x, nums):
     """
-    Pime Game function to know who is the winner of the game
-    based on the number of rounds and the list of integers
-    x: number of rounds to play
-    nums: an array of n number of integers
-    Return: name of the player that won the most rounds
+    Determines winner of Prime Game
+    Args:
+        x (int): no. of rounds of game
+        nums (int): upper limit of range for each round
+    Return:
+        Name of winner (Maria or Ben) or None if winner cannot be found
     """
-    if not nums or x < 1:
+    if x is None or nums is None or x == 0 or nums == []:
         return None
-    n = max(nums)
-    sieve = [True for i in range(n + 1)]
-    sieve[0] = False
-    sieve[1] = False
-    for i in range(2, int(n ** 0.5) + 1):
-        if sieve[i] == True:
-            for j in range(i * i, n + 1, i):
-                sieve[j] = False
-    c = 0
-    for i in range(len(sieve)):
-        if sieve[i] == True:
-            c += 1
-        sieve[i] = c
-    player1 = 0
-    for n in nums:
-        player1 += sieve[n] % 2 == 1
-    if player1 * 2 == len(nums):
-        return None
-    if player1 * 2 > len(nums):
-        return "Maria"
-    return "Ben"
+    Maria = Ben = 0
+    for i in range(x):
+        prime = primes(nums[i])
+        if len(prime) % 2 == 0:
+            Ben += 1
+        else:
+            Maria += 1
+    if Maria > Ben:
+        return 'Maria'
+    elif Ben > Maria:
+        return 'Ben'
+    return None
